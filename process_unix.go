@@ -32,6 +32,9 @@ func (p *UnixProcess) PPid() int {
 func (p *UnixProcess) Executable() string {
 	return p.binary
 }
+func (p *UnixProcess) GetProcessData() ProcessData {
+	return ProcessData{"",0,0,"not a valid call for this OS, only valid for windows"}
+}
 
 func findProcess(pid int) (Process, error) {
 	dir := fmt.Sprintf("/proc/%d", pid)

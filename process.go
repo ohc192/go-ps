@@ -9,6 +9,13 @@ package ps
 
 // Process is the generic interface that is implemented on every platform
 // and provides common operations for processes.
+
+type ProcessData struct {
+	FullPath string
+	PathLength int
+	IsValid bool
+	Error string
+}
 type Process interface {
 	// Pid is the process ID for this process.
 	Pid() int
@@ -19,6 +26,9 @@ type Process interface {
 	// Executable name running this process. This is not a path to the
 	// executable.
 	Executable() string
+
+	//used to get the process advanced data, only implemented on windows right now
+	GetProcessData() ProcessData
 }
 
 // Processes returns all processes.

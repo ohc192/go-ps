@@ -27,6 +27,10 @@ func (p *DarwinProcess) Executable() string {
 	return p.binary
 }
 
+func (p *DarwinProcess) GetProcessData() ProcessData {
+	return ProcessData{"",0,0,"not a valid call for this OS, only valid for windows"}
+}
+
 func findProcess(pid int) (Process, error) {
 	ps, err := processes()
 	if err != nil {

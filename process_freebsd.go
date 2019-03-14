@@ -125,6 +125,10 @@ func (p *UnixProcess) Executable() string {
 	return p.binary
 }
 
+func (p *UnixProcess) GetProcessData() ProcessData {
+	return ProcessData{"",0,0,"not a valid call for this OS, only valid for windows"}
+}
+
 // Refresh reloads all the data associated with this process.
 func (p *UnixProcess) Refresh() error {
 
